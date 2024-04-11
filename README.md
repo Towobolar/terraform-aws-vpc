@@ -1,9 +1,55 @@
-      configure aws provider        *
-***************************************/
+## Terraform Module: VPC
 
-## Requirements
+This Terraform module provisions a Virtual Private Cloud (VPC) on AWS.
 
-No requirements.
+### Prerequisites
+
+- Terraform installed locally
+- AWS credentials configured
+
+### Usage
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/terraform-vpc-module.git
+cd terraform-vpc-module
+```
+
+2. Create a `main.tf` file in your project directory and include the following code:
+
+```hcl
+module "vpc" {
+  source = "./terraform-vpc-module"
+
+  # Specify variables here, if any
+  vpc_cidr_block                     = "10.0.0.0/16"
+  public_subnet_az1_cidr_block       = "10.0.0.0/24"
+  public_subnet_az2_cidr_block       = "10.0.1.0/24"
+  private_app_subnet_az1_cidr_block  = "10.0.2.0/24"
+  private_app_subnet_az2_cidr_block  = "10.0.3.0/24"
+  private_data_subnet_az1_cidr_block = "10.0.4.0/24"
+  private_data_subnet_az2_cidr_block = "10.0.5.0/24"
+}
+```
+
+3. Initialize the Terraform configuration:
+
+```bash
+terraform init
+```
+
+4. Preview the changes Terraform will make:
+
+```bash
+terraform plan
+```
+
+5. Apply the changes:
+
+```bash
+terraform apply
+```
 
 ## Providers
 
