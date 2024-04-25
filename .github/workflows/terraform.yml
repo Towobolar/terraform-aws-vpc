@@ -1,3 +1,4 @@
+
 name: 'Terraform'
 on: 
   push:
@@ -12,7 +13,6 @@ on:
     name: 'Terraform'
     
     runs-on: ubuntu-latest
-    environment: production
     defaults:
       run:
         shell: bash
@@ -62,3 +62,4 @@ on:
       if: github.ref == 'refs/heads/"feature/test-pipeline"' && github.event_name == 'push'
       working-directory: project-zenith-example/
       run: terraform apply -auto-approve -input=false
+      
