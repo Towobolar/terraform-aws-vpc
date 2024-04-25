@@ -6,8 +6,8 @@ on:
     branches: [ "feature/test-pipeline" ]
   pull_request:
 
-permissions:
-  contents: read
+  permissions:
+    contents: read
 
   jobs: 
   terraform:
