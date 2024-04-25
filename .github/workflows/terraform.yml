@@ -11,12 +11,11 @@ on:
   jobs: 
   terraform:
     name: 'Terraform'
-    
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
-        working-directory: ./projet-zenith-example
+        working-directory: ./projet-zenith-example/
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
       # defaults:
