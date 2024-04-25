@@ -1,7 +1,7 @@
 
 name: 'Terraform'
 
-on:
+on: 
   push:
     branches: [ "feature/test-pipeline" ]
   pull_request:
