@@ -2,11 +2,8 @@ name: Terraform CI
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    branches: [ "feature/test-pipeline" ]
+ 
 
 jobs:
   terraform:
