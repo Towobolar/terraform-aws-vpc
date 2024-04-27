@@ -5,17 +5,24 @@ on:
     branches: [ "feature/test-pipeline" ]
 
 jobs:
-  job1:
+  terraform:
+    name: 'Terraform'
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: ./project-zenith-example
+    environment: production
     
     steps:
-    - name: Checkout repository
+    - name: Checkout repository 1
       uses: actions/checkout@v2
-      
+      with: 
+        repository: Towobolar/terraform-aws-vpc
+        path: ./module/vpc
+
+    - name: Checkout repository 2
+      uses: actions/checkout@v2
+      with: 
+        repository: Towobolar/terraform-aws-vpc
+        path: ./project-zenith-vpc
+
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
