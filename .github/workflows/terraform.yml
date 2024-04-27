@@ -21,14 +21,14 @@ jobs:
       
     - name: Terraform Init
       run: terraform init
-      working-directory: ./project-zenith-example
+      working-directory: ./terraform-aws-vpc
       
     # - name: Terraform Validate
     #   run: terraform validate
       
     - name: Terraform Plan
       run: terraform plan
-      working-directory: ./module/vpc
+      # working-directory: ./module/vpc
       
     - name: Terraform Apply
       if: github.event_name == 'push' && github.ref == 'refs/heads/feature/test-pipeline'
