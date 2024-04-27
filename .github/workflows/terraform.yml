@@ -33,5 +33,5 @@ jobs:
       # working-directory: ./project-zenith-example
       
     - name: Terraform Apply
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      if: github.event_name == 'push' && github.ref == 'refs/heads/feature/test-pipeline'
       run: terraform apply -auto-approve
