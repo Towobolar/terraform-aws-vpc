@@ -5,9 +5,12 @@ on:
     branches: [ "feature/test-pipeline" ]
 
 jobs:
-  terraform:
-    name: Terraform
+  job1:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./project-zenith-example
     
     steps:
     - name: Checkout repository
@@ -20,14 +23,14 @@ jobs:
       
     - name: Terraform Init
       run: terraform init
-      working-directory: ./project-zenith-example
+      # working-directory: ./project-zenith-example
       
     - name: Terraform Validate
       run: terraform validate
       
     - name: Terraform Plan
       run: terraform plan
-      working-directory: ./project-zenith-example
+      # working-directory: ./project-zenith-example
       
     - name: Terraform Apply
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
