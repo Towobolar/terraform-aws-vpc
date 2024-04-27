@@ -21,7 +21,7 @@ jobs:
       
     - name: Terraform Init
       run: terraform init
-      working-directory: ./Towobolar/terraform-aws-vpc
+      working-directory: ./project-zenith-example
       
     # - name: Terraform Validate
     #   run: terraform validate
