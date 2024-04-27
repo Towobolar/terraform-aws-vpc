@@ -11,18 +11,9 @@ jobs:
     environment: production
     
     steps:
-    - name: Checkout repository 1
+    - name: Checkout repository
       uses: actions/checkout@v2
-      with: 
-        repository: Towobolar/terraform-aws-vpc
-        path: ./module/vpc
-
-    - name: Checkout repository 2
-      uses: actions/checkout@v2
-      with: 
-        repository: Towobolar/terraform-aws-vpc
-        path: ./project-zenith-vpc
-
+      
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
