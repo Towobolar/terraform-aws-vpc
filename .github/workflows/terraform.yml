@@ -21,7 +21,7 @@ jobs:
       
     - name: Terraform Init
       run: terraform init
-      # working-directory: ./project-zenith-example
+      working-directory: ./project-zenith-example
       
     # - name: Terraform Validate
     #   run: terraform validate
