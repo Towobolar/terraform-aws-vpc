@@ -11,8 +11,8 @@ provider "aws" {
 ***************************/
 
 module "vpc" {
-#source                             = "../module/vpc"
-  source                             = "git::https://github.com/Towobolar/terraform-aws-vpc.git?ref=feature/test-pipeline"
+source                             = "../module/vpc"
+  # source                             = "git::https://github.com/Towobolar/terraform-aws-vpc.git?ref=feature/test-pipeline"
   region                             = var.region
   vpc_cidr_block                     = var.vpc_cidr_block
   project_name                       = var.project_name
