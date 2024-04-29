@@ -42,7 +42,7 @@ jobs:
       
     - name: Terraform Plan
       run: terraform plan
-      working-directory: git::https://github.com/Towobolar/terraform-aws-vpc.git?ref=feature/test-pipeline
+      # working-directory: ./module/vpc
       
     - name: Terraform Apply
       if: github.event_name == 'push' && github.ref == 'refs/heads/feature/test-pipeline'
