@@ -17,10 +17,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2  
 
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        path: ./module/vpc      
+    # - name: Checkout
+    #   uses: actions/checkout@v4
+    #   with:
+    #     path: ./module/vpc      
       
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
@@ -29,6 +29,9 @@ jobs:
       
     - name: Terraform Init
       run: terraform init
+
+    - name: change directory  
+      run: cd ./module/vpc
      
       
     # - name: Terraform Validate
@@ -36,7 +39,7 @@ jobs:
       
     - name: Terraform Plan
       run: terraform plan
-      working-directory: ./module/vpc
+      # working-directory: ./module/vpc
       
     - name: Terraform Apply
       if: github.event_name == 'push' && github.ref == 'refs/heads/feature/test-pipeline'
