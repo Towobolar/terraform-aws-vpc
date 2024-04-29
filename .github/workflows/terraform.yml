@@ -16,6 +16,11 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        path: ./module/vpc  
       
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
