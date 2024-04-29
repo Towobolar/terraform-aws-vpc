@@ -20,7 +20,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        path: ./module/vpc      
+        path: ../../module/vpc      
       
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
