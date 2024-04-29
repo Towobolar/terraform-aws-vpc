@@ -31,7 +31,9 @@ jobs:
       run: terraform init
 
     - name: change directory  
-      run: cd ./module/vpc
+      run: |
+        pwd
+        cd module/vpc
      
       
     # - name: Terraform Validate
