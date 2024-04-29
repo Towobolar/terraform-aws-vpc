@@ -20,7 +20,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        path: git::https://github.com/Towobolar/terraform-aws-vpc.git?ref=feature/test-pipeline      
+        path: ../module/vpc      
       
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
