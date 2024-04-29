@@ -11,7 +11,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./project-zenith-example
+        working-directory: ./project-zenith-example, ./module/vpc
     
     steps:
     - name: Checkout repository
@@ -34,7 +34,7 @@ jobs:
       run: terraform init
 
     - name: Terraform Plan
-      working-directory: ./module/vpc
+      # working-directory: ./module/vpc
       run: terraform plan
 
     - name: Terraform Apply
