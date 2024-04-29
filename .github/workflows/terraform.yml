@@ -33,7 +33,7 @@ jobs:
     - name: change directory  
       run: |
         pwd
-        cd module/vpc
+        cd module
      
       
     # - name: Terraform Validate
