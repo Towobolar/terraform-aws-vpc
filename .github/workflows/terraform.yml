@@ -30,17 +30,17 @@ jobs:
     - name: Terraform Init
       run: terraform init
 
-    - name: change directory  
-      run: |
-        pwd
-        cd ..
-        cd module/vpc
+    # - name: change directory  
+    #   run: |
+    #     pwd
+    #     cd ..
+    #     cd module/vpc
       
     # - name: Terraform Validate
     #   run: terraform validate
        
     - name: Terraform Plan
-      working-directory: ./module/vpc
+      # working-directory: ./module/vpc
       run: terraform plan
       
       
