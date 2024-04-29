@@ -11,7 +11,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./project-zenith-example, ./module/vpc
+        working-directory: "./project-zenith-example, ./module/vpc"
     
     steps:
     - name: Checkout repository
