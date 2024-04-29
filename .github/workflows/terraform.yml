@@ -15,7 +15,11 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2  
+      uses: actions/checkout@v2
+      with:
+        working-dir: ./module/vpc
+        recursive: true
+        recursive-path: modules  
 
     # - name: Checkout
     #   uses: actions/checkout@v4
