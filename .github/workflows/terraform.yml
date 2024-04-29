@@ -41,8 +41,9 @@ jobs:
     #   run: terraform validate
        
     - name: Terraform Plan
-      run: terraform plan
       working-directory: ./module/vpc
+      run: terraform plan
+      
       
     - name: Terraform Apply
       if: github.event_name == 'push' && github.ref == 'refs/heads/feature/test-pipeline'
