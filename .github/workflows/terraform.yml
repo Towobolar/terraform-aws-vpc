@@ -20,12 +20,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        path: ./module/vpc 
-        
+        path: ./project-zenith-example  
+
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        path: ./project-zenith-example     
+        path: ./module/vpc 
+
+    # - name: Checkout
+    #   uses: actions/checkout@v4
+    #   with:
+    #     path: ./project-zenith-example     
       
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
