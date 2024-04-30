@@ -3,8 +3,6 @@ name: Terraform CI
 on:
   push:
     branches: [ "feature/test-pipeline" ]
-    paths:
-      - "./module/vpc"
 
 jobs:
   terraform:
@@ -14,65 +12,27 @@ jobs:
       run:
         shell: bash
         working-directory: ./project-zenith-example
-     
-    # steps:
-    # - name: Checkout repository
-    #   uses: actions/checkout@v2
-    #   with:
-    #     paths: **/.tf
-        # working-dir: ./module/vpc
-        # recursive: true
-        # recursive-path: modules  
 
-    # steps:
-    # - name: Checkout code
-    #   uses: actions/checkout@v2
     steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        path: ./module/vpc      
+      
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
-          terraform_version: 1.7.4
-
+        cli_config_credentials_token: ${{ secrets.tfc_team_token }}
+      
     - name: Terraform Init
       run: terraform init
-
-    - name: Terraform Plan
-      # working-directory: ./module/vpc
-      run: terraform plan
-
-    - name: Terraform Apply
-      run: terraform apply -auto-approve
-      env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
-    # - name: Checkout
-    #   uses: actions/checkout@v4
-    #   with:
-    #     path: ./module/vpc      
       
-    # - name: Setup Terraform
-    #   uses: hashicorp/setup-terraform@v1
-    #   with:
-    #     cli_config_credentials_token: ${{ secrets.tfc_team_token }}
-      
-    # - name: Terraform Init
-    #   run: terraform init
-
-    # - name: change directory  
-    #   run: |
-    #     pwd
-    #     cd ..
-    #     cd module/vpc
-      
-    # - name: Terraform Validate
-    #   run: terraform validate
+    - name: Terraform Validate
+      run: terraform validate
        
-    # - name: Terraform Plan
-    #   # working-directory: ./module/vpc
-    #   run: terraform plan
-      
-      
-    # - name: Terraform Apply
-    #   if: github.event_name == 'push' && github.ref == 'refs/heads/feature/test-pipeline'
-    #   run: terraform apply -auto-approve
+    - name: Terraform Plan
+      run: terraform plan
+         
+    - name: Terraform Apply
+      # if: github.event_name == 'push' && github.ref == 'refs/heads/feature/test-pipeline'
+      run: terraform apply -auto-approve
