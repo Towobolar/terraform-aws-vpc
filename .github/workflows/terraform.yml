@@ -19,10 +19,10 @@ jobs:
         with:
           path: ./module/vpc
         
-      - name: Checkout directory 2
-        uses: actions/checkout@v2
-        with:
-          path: ./project-zenith-example
+      # - name: Checkout directory 2
+      #   uses: actions/checkout@v2
+      #   with:
+      #     path: ./project-zenith-example
   
 
     # steps:
