@@ -15,11 +15,11 @@ jobs:
         shell: bash
         working-directory: ./project-zenith-example
     
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      with:
-        paths: **/.tf
+    # steps:
+    # - name: Checkout repository
+    #   uses: actions/checkout@v2
+    #   with:
+    #     paths: **/.tf
         # working-dir: ./module/vpc
         # recursive: true
         # recursive-path: modules  
@@ -27,7 +27,7 @@ jobs:
     # steps:
     # - name: Checkout code
     #   uses: actions/checkout@v2
-
+    steps:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
