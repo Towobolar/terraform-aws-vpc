@@ -3,6 +3,8 @@ name: Terraform CI
 on:
   push:
     branches: [ "feature/test-pipeline" ]
+    paths:
+      - "./module/vpc"
 
 jobs:
   terraform:
