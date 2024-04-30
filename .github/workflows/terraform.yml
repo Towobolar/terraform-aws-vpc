@@ -2,10 +2,22 @@ name: Terraform CI
 
 on:
   push:
-    branches: [ "feature/test-pipeline" ]
+    branches: [ "feature/*", "develop", "main" ]
+  pull_request:
+    types:
+      - opened
+  pull_request_review:
+    types: [submitted]
+      
 
 jobs:
-  terraform:
+  approved:
+    if: github.event.review.state == 'APPROVED'
+    runs-on: ubuntu-latest
+    steps:
+     - run: echo "This PR was approved"
+
+  Terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
     defaults:
@@ -32,7 +44,7 @@ jobs:
       run: terraform plan
          
     - name: Terraform Apply
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/feature/test-pipeline' }}
+      if: ${{ github.event_name == 'pull_request' && github.ref == 'refs/heads/main' }}
       run: terraform apply -auto-approve
 
     - name: Terraform destroy
