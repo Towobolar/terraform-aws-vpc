@@ -8,38 +8,42 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: ./project-zenith-example
-    
+    # defaults:
+    #   run:
+    #     shell: bash
+    #     working-directory: ./project-zenith-example
+  
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      with:
-        working-dir: ./module/vpc
-        recursive: true
-        recursive-path: modules  
+      - name: Checkout directory 1
+        uses: actions/checkout@v2
+        with:
+          path: ./module/vpc
+        
+      - name: Checkout directory 2
+        uses: actions/checkout@v2
+        with:
+          path: ./project-zenith-example
+  
 
     # steps:
     # - name: Checkout code
     #   uses: actions/checkout@v2
 
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v1
-      with:
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
           terraform_version: 1.7.4
 
-    - name: Terraform Init
-      run: terraform init
+      - name: Terraform Init
+        run: terraform init
 
-    - name: Terraform Plan
+      - name: Terraform Plan
       # working-directory: ./module/vpc
-      run: terraform plan
+        run: terraform plan
 
-    - name: Terraform Apply
-      run: terraform apply -auto-approve
-      env:
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
