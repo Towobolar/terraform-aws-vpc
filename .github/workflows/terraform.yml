@@ -17,9 +17,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
-        working-dir: ./module/vpc
-        recursive: true
-        recursive-path: modules  
+        paths: **.tf
+        # working-dir: ./module/vpc
+        # recursive: true
+        # recursive-path: modules  
 
     # steps:
     # - name: Checkout code
