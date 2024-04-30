@@ -13,6 +13,9 @@ on:
 jobs:
   approved:
     if: github.event.review.state == 'APPROVED'
+    runs-on: ubuntu-latest
+    
+  Terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
     defaults:
