@@ -6,10 +6,13 @@ on:
   pull_request:
     types:
       - opened
+  pull_request_review:
+    types: [submitted]
       
 
 jobs:
-  terraform:
+  approved:
+    if: github.event.review.state == 'APPROVED'
     name: 'Terraform'
     runs-on: ubuntu-latest
     defaults:
