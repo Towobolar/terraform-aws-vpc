@@ -44,7 +44,7 @@ jobs:
       run: terraform plan
          
     - name: Terraform Apply
-      if: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.ref == 'refs/heads/main' &&  }}
+      if: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.ref == 'refs/heads/main' }}
       run: terraform apply -auto-approve
 
     - name: Terraform destroy
