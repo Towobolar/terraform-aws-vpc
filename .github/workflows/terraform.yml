@@ -3,19 +3,19 @@ name: Terraform CI
 on:
   push:
     branches: [ "feature/*", "develop", "main" ]
-  pull_request:
-    types:
-      - opened
-  pull_request_review:
-    types: [submitted]
+  # pull_request:
+  #   types:
+  #     - opened
+  # pull_request_review:
+  #   types: [submitted]
       
 
 jobs:
-  approved:
-    if: github.event.review.state == 'APPROVED'
-    runs-on: ubuntu-latest
-    steps:
-     - run: echo "This PR was approved"
+  # approved:
+  #   if: github.event.review.state == 'APPROVED'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #    - run: echo "This PR was approved"
 
   Terraform:
     name: 'Terraform'
@@ -44,8 +44,8 @@ jobs:
       run: terraform plan
          
     - name: Terraform Apply
-      if: ${{ github.event_name == 'pull_request' && github.ref == 'refs/heads/main' && github.event.pull_request.merged == true }}
+      #if: ${{ github.event_name == 'pull_request' && github.ref == 'refs/heads/main' && github.event.pull_request.merged == true }}
       run: terraform apply -auto-approve
 
-    - name: Terraform destroy
-      run: terraform destroy -auto-approve
+    # - name: Terraform destroy
+    #   run: terraform destroy -auto-approve
