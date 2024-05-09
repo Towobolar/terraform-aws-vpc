@@ -47,7 +47,7 @@ jobs:
       uses: bridgecrewio/checkov-action@master
       with:
         directory: ./terraform
-        framework: terrafeorm      
+        framework: terraform      
          
     - name: Terraform Apply
      # if: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.ref == 'refs/heads/main' }}
