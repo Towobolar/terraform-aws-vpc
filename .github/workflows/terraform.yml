@@ -46,7 +46,7 @@ jobs:
       id: checkov
       uses: bridgecrewio/checkov-action@master
       with:
-        directory: ./terraform
+        directory: ./project-zenith-exampl
         framework: terraform      
          
     - name: Terraform Apply
